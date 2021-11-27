@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/User/', include('users.urls')),
+    path('api/Accelo/', include('accelo.urls')),
 ]
