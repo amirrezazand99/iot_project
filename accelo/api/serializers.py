@@ -20,3 +20,28 @@ class ViewAcceloRecords_Serializer(serializers.ModelSerializer):
         model = Accelo
         fields = '__all__'
 
+
+class View_filteredAccelo_serializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Accelo
+        fields = (
+            'owner',
+            'ID_of_device',
+            'Time_send',
+            'x',
+            'y',
+            'z',
+            'roll',
+            'pitch',
+            'yaw',
+            'psi',
+            'theta',
+            'phi',
+            'labeled'
+
+
+        )
+
+
+
