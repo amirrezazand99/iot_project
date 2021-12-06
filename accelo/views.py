@@ -6,12 +6,13 @@ from rest_framework.permissions import (
     IsAuthenticated
 )
 
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView
 
 
 from .api.serializers import (
     Create_accelo_record_serializer,
-    ViewAcceloRecords_Serializer
+    ViewAcceloRecords_Serializer,
+    View_filteredAccelo_serializer
 )
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -76,3 +77,11 @@ class AcceloAPI_View(APIView):
         seralizer = ViewAcceloRecords_Serializer(records, many=True)
 
         return Response({"This is a list of all records by accelo":seralizer.data})
+
+class AcceloFiltered_APIView(ListAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = View_filteredAccelo_serializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Accelo.objects.filter(owner=user)
