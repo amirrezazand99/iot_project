@@ -24,4 +24,25 @@ class ViewPulseRecords_Serializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pulse
+        fields = '__all__'
+
+
+
+class View_filteredPulse_serializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Pulse
+        fields = (
+            'owner',
+            'Device_ID',
+            'Time_send',
+            'HeartRate',
+            'Temp',
+            'Auxiliary1',
+            'Auxiliary2',
+            'Auxiliary3',
+            'labeled',
+        )
+
+
 
