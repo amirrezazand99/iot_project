@@ -12,6 +12,6 @@ class Pulse(models.Model):
     Auxiliary1 = models.CharField(max_length= 100 , null= True , blank= True)
     Auxiliary2 = models.CharField(max_length= 100 , null= True , blank= True)
     Auxiliary3 = models.CharField(max_length= 100 , null= True , blank= True)
-    labeled = models.CharField(max_length=100)
+    labeled = models.CharField(max_length=100 , null = True)
 
 
