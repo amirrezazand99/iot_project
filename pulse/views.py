@@ -7,12 +7,13 @@ from rest_framework.permissions import (
     IsAuthenticated
 )
 
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView
 
 
 from .api.serializers import (
     Create_pulse_record_serializer,
-    ViewPulseRecords_Serializer
+    ViewPulseRecords_Serializer,
+    View_filteredPulse_serializer
 )
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -26,17 +27,7 @@ from users.models import user
 
 # Create your views here.
 
-'''
-    owner = models.ForeignKey(user , on_delete = models.CASCADE , null = False)
-    Device_ID = models.CharField(max_length=100 , unique=True)
-    Time_send = models.DateTimeField(auto_now=True , null=False)
-    HeartRate = models.CharField(max_length=100 , null = True)
-    Temp = models.CharField(max_length= 100, null= True, blank= True)
-    Auxiliary1 = models.CharField(max_length= 100 , null= True , blank= True)
-    Auxiliary2 = models.CharField(max_length= 100 , null= True , blank= True)
-    Auxiliary3 = models.CharField(max_length= 100 , null= True , blank= True)
-    labeled = models.CharField(max_length=100)
-'''
+
 class Pulse_Create_recordAPI(APIView):
 
     permission_classes = (IsAuthenticated,)
@@ -75,9 +66,19 @@ class Pulse_Create_recordAPI(APIView):
                             status=status.HTTP_400_BAD_REQUEST)
 
 
+
+
 class PulseAPI_View(APIView):
     def get(self, request, format=None, *args, **kwargs):
         records = Pulse.objects.all()
         seralizer = ViewPulseRecords_Serializer(records, many=True)
 
         return Response({"This is a list of all records by Pulse":seralizer.data})
+
+class PulseFiltered_APIView(ListAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = View_filteredPulse_serializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Pulse.objects.filter(owner=user)
