@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     # local apps:
     'users',
     'accelo',
-    'pulse'
+    'pulse',
+    'devices'
 
 
 ]
