@@ -11,12 +11,12 @@ class Accelo(models.Model):
     x = models.CharField(max_length=100)
     y = models.CharField(max_length=100)
     z = models.CharField(max_length=100)
-    roll = models.CharField(max_length=100)
-    pitch = models.CharField(max_length=100)
-    yaw = models.CharField(max_length=100)
+    roll = models.CharField(max_length=100 , null = True) #nullable
+    pitch = models.CharField(max_length=100 , null = True)
+    yaw = models.CharField(max_length=100 , null = True)
     psi = models.CharField(max_length=100 , null=True )
     theta = models.CharField(max_length=100 , null=True)
     phi = models.CharField(max_length=100 , null=True)
-    labeled = models.CharField(max_length=100)
+    labeled = models.CharField(max_length=100, null= True)
 
 
