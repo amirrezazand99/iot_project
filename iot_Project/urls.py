@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/User/', include('users.urls')),
     path('api/Accelo/', include('accelo.urls')),
     path('api/Pulse/', include('pulse.urls')),
+    path('api/Devices/', include('devices.urls')),
 ]
