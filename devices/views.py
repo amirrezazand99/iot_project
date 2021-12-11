@@ -351,7 +351,7 @@ class Device_Create_recordAPI(APIView):
 
             try:
                 new_record = devices(owner=creator , ID_of_device = ID_of_device , labeled=labeled,
-                                     parameter1=['parameter1'],
+                parameter1= parameter1,
                 parameter2 = parameter2,
                 parameter3 = parameter3,
                 parameter4 = parameter4,
