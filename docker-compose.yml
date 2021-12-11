@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    environment:
+      - DEBUG=${DEBUG}
+      - DJANGO_SETTINGS_MODULE=_base.settings
+    # command: uwsgi --http :8000 --socket /socket/api.sock --chmod-socket=666 --module _base.wsgi --master --processes 5 --threads 2
+    # command: uwsgi --http :8000 --module _base.wsgi --master --processes 5 --threads 2
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3307:3306"
+    volumes:
+      - $HOME/Desktop/MySQL-Snippets/school.sql:/school.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
