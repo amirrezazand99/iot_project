@@ -14,6 +14,7 @@ class Create_device_record_serializer(serializers.ModelSerializer):
         fields = '__all__'
         extra_kwargs ={
             'owner':{'required':False},
+            'parameter1': {'required': False},
             'parameter2': {'required': False},
             'parameter3': {'required': False},
             'parameter4': {'required': False},
