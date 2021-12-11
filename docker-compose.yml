@@ -8,7 +8,7 @@ services:
       - .env
     environment:
       - DEBUG=${DEBUG}
-      - DJANGO_SETTINGS_MODULE=_base.settings
+      - DJANGO_SETTINGS_MODULE=iot_Project.settings
     # command: uwsgi --http :8000 --socket /socket/api.sock --chmod-socket=666 --module _base.wsgi --master --processes 5 --threads 2
     # command: uwsgi --http :8000 --module _base.wsgi --master --processes 5 --threads 2
     command: python manage.py runserver 0.0.0.0:8000
