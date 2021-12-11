@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code
 
 
-RUN apk add --update --no-cache postgresql-client jpeg-dev gettext redis mysql mysql-client
+RUN apk add --update --no-cache postgresql-client jpeg-dev gettext redis mysql mysql-server
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers postgresql-dev musl-dev zlib zlib-dev libffi-dev openssl-dev git mysql-server
 RUN pip install --upgrade pip
