@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 from datetime import timedelta
+from decouple import config, Csv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1-rfwvwc6yrwo@q$v$bxg^teca6x=z&536!0q(15pmz@z6p8lc'
+SECRET_KEY = config('SECRET_KEY', default='secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
 
 
 # Application definition
@@ -110,11 +111,11 @@ WSGI_APPLICATION = 'iot_Project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testdb',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': config('DEFAULT_DATABASE_NAME', default='test_db'),
+        'USER': config('DEFAULT_DATABASE_USER', default='root'),
+        'PASSWORD': config('DEFAULT_DATABASE_PASSWORD', default='root'),
+        'HOST': config('DEFAULT_DATABASE_HOST', default='localhost'),
+        'PORT': config('DEFAULT_DATABASE_PORT', default='5432', cast=int),
     }
 }
 
