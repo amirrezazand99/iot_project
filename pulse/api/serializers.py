@@ -35,6 +35,7 @@ class View_filteredPulse_serializer(serializers.ModelSerializer):
         fields = (
             'owner',
             'Device_ID',
+            'Preprocessed',
             'Time_send',
             'HeartRate',
             'Temp',

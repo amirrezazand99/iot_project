@@ -38,6 +38,7 @@ class View_filteredAccelo_serializer(serializers.ModelSerializer):
             'psi',
             'theta',
             'phi',
+            'Preprocessed',
             'labeled'
 
 

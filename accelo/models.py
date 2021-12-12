@@ -17,6 +17,7 @@ class Accelo(models.Model):
     psi = models.CharField(max_length=100 , null=True )
     theta = models.CharField(max_length=100 , null=True)
     phi = models.CharField(max_length=100 , null=True)
+    Preprocessed = models.CharField(max_length=20, null=True)
     labeled = models.CharField(max_length=100, null= True)
 
 

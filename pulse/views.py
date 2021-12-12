@@ -40,6 +40,7 @@ class Pulse_Create_recordAPI(APIView):
             creator = user.objects.get(username= request.user.username)
             Device_ID = serializer.data['Device_ID']
             HeartRate = serializer.data['HeartRate']
+            Preprocessed = serializer.data['Preprocessed']
             Temp = serializer.data['Temp']
             Auxiliary1 = serializer.data['Auxiliary1']
             Auxiliary2 = serializer.data['Auxiliary2']
@@ -47,7 +48,7 @@ class Pulse_Create_recordAPI(APIView):
             labeled = serializer.data['labeled']
 
             try:
-                new_record = Pulse(owner=creator, Device_ID=Device_ID,
+                new_record = Pulse(owner=creator, Device_ID=Device_ID, Preprocessed=Preprocessed ,
                                    HeartRate=HeartRate, Temp= Temp,
                                    Auxiliary1=Auxiliary1 ,
                                    Auxiliary2= Auxiliary2,

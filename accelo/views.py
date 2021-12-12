@@ -48,12 +48,13 @@ class Accelo_Create_recordAPI(APIView):
             psi = serializer.data['psi']
             theta = serializer.data['theta']
             phi = serializer.data['phi']
+            Preprocessed = serializer.data['Preprocessed']
             labeled = serializer.data['labeled']
 
             try:
                 new_record = Accelo(owner=creator, ID_of_device=ID_of_device, x=x, y=y,
                                     z=z, roll= roll, pitch=pitch, yaw=yaw,
-                                    psi=psi, theta=theta, phi=phi,labeled=labeled)
+                                    psi=psi, theta=theta, phi=phi , Preprocessed = Preprocessed,labeled=labeled)
                 new_record.save()
                 content = {
                     'detail': 'successfuly added the new record' }

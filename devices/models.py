@@ -9,6 +9,7 @@ class devices(models.Model):
     ID_of_device = models.CharField(max_length=100, unique=True)
     Time_send = models.DateTimeField(auto_now=True, null=False)
     labeled = models.CharField(max_length=100 , null = True , blank=True)
+    Preprocessed = models.CharField(max_length=20 , null = True)
     parameter1 = models.TextField( blank=True, null=True)
     parameter2 = models.TextField( blank=True, null=True)
     parameter3 = models.TextField( blank=True, null=True)
