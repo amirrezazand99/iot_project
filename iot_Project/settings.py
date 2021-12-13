@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'iot_Project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': config('DEFAULT_DATABASE_NAME', default='test_db'),
         'USER': config('DEFAULT_DATABASE_USER', default='root'),
         'PASSWORD': config('DEFAULT_DATABASE_PASSWORD', default='root'),
