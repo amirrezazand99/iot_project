@@ -15,15 +15,27 @@ services:
     depends_on:
       - db
 
-  db:
-    image: mysql
-    restart: always
+#  db:
+#    image: mysql
+#    restart: always
+#    env_file:
+#      - .env
+#    ports:
+#      - "3308:3307"
+#    volumes:
+#      - $HOME/Desktop/MySQL-Snippets/school.sql:/school.sql
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: test_db
+ db:
+    image: postgres:11.12
     env_file:
       - .env
     ports:
-      - "3308:3307"
+      - "5432:5432"
     volumes:
-      - $HOME/Desktop/MySQL-Snippets/school.sql:/school.sql
+      - /home/mostafa/data/postgres:/var/lib/postgresql/data
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test_db
+      - POSTGRES_DB=test_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
