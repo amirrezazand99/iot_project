@@ -21,7 +21,7 @@ services:
     env_file:
       - .env
     ports:
-      - "3307:3306"
+      - "3307:3307"
     volumes:
       - $HOME/Desktop/MySQL-Snippets/school.sql:/school.sql
     environment:

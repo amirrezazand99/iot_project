@@ -115,7 +115,7 @@ DATABASES = {
         'USER': config('DEFAULT_DATABASE_USER', default='root'),
         'PASSWORD': config('DEFAULT_DATABASE_PASSWORD', default='root'),
         'HOST': config('DEFAULT_DATABASE_HOST', default='localhost'),
-        'PORT': config('DEFAULT_DATABASE_PORT', default='5432', cast=int),
+        'PORT': config('DEFAULT_DATABASE_PORT', default='3307', cast=int),
     }
 }
 
