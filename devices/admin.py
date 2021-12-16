@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Accelo
+from .models import devices
 from django.contrib.admin import ModelAdmin
 
 
 # Register your models here.
-@admin.register(Accelo)
+@admin.register(devices)
 class Device(ModelAdmin):
     fields = (
         'owner',
