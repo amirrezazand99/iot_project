@@ -5,7 +5,7 @@ from django.contrib.admin import ModelAdmin
 # Register your models here.
 @admin.register(Pulse)
 class Pulse(ModelAdmin):
-    fields = ('owner', 'Preprocessed','Time_send','HeartRate','Temp','Auxiliary1','Auxiliary2','Auxiliary3','labeled')
+    fields = ('owner', 'Preprocessed','HeartRate','Temp','Auxiliary1','Auxiliary2','Auxiliary3','labeled')
     list_display = ('owner', 'Preprocessed','Time_send','HeartRate','Temp','Auxiliary1','Auxiliary2','Auxiliary3','labeled')
 
 '''

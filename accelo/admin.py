@@ -5,7 +5,7 @@ from django.contrib.admin import ModelAdmin
 
 # Register your models here.
 @admin.register(Accelo)
-class Pulse(ModelAdmin):
+class Accelo(ModelAdmin):
     fields = (
     'owner', 'ID_of_device', 'Time_send', 'x', 'y', 'z', 'roll', 'pitch', 'yaw','psi', 'theta','phi' , 'Preprocessed', 'labeled')
     list_display = (
