@@ -7,7 +7,7 @@ from django.contrib.admin import ModelAdmin
 @admin.register(Accelo)
 class Accelo(ModelAdmin):
     fields = (
-    'owner', 'ID_of_device', 'Time_send', 'x', 'y', 'z', 'roll', 'pitch', 'yaw','psi', 'theta','phi' , 'Preprocessed', 'labeled')
+    'owner', 'ID_of_device', 'x', 'y', 'z', 'roll', 'pitch', 'yaw','psi', 'theta','phi' , 'Preprocessed', 'labeled')
     list_display = (
     'owner', 'ID_of_device', 'Time_send', 'x', 'y', 'z', 'roll', 'pitch', 'yaw','psi', 'theta','phi' , 'Preprocessed', 'labeled')
 '''
