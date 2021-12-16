@@ -330,7 +330,7 @@ class Device(ModelAdmin):
         'owner',
         'ID_of_device',
         'labeled',
-        'Time_send'
+        'Time_send',
         'Preprocessed',
         'parameter1',
         'parameter2',
