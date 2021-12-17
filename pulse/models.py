@@ -6,7 +6,7 @@ from users.models import user
 class Pulse(models.Model):
     owner = models.ForeignKey(user , on_delete = models.CASCADE , null = False)
     Preprocessed = models.CharField(max_length=20 , null = True)
-    Device_ID = models.CharField(max_length=100 , unique=True)
+    Device_ID = models.CharField(max_length=100 )
     Time_send = models.DateTimeField(auto_now=True , null=False)
     HeartRate = models.CharField(max_length=100 , null = True)
     Temp = models.CharField(max_length= 100, null= True, blank= True)

@@ -6,7 +6,7 @@ from users.models import user
 
 class devices(models.Model):
     owner = models.ForeignKey(user, on_delete=models.CASCADE, null=False)
-    ID_of_device = models.CharField(max_length=100, unique=True)
+    ID_of_device = models.CharField(max_length=100)
     Time_send = models.DateTimeField(auto_now=True, null=False)
     labeled = models.CharField(max_length=100 , null = True , blank=True)
     Preprocessed = models.CharField(max_length=20 , null = True)
