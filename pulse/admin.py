@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Pulse
 from django.contrib.admin import ModelAdmin
+from csvexport.actions import csvexport
 
 
 
@@ -19,7 +20,7 @@ def download_csv(modeladmin, request, queryset):
 class Pulse(ModelAdmin):
     fields = ('owner', 'Preprocessed','HeartRate','Temp','Auxiliary1','Auxiliary2','Auxiliary3','labeled')
     list_display = ('owner', 'Preprocessed','Time_send','HeartRate','Temp','Auxiliary1','Auxiliary2','Auxiliary3','labeled')
-    actions = [download_csv]
+    actions = [csvexport]
 '''
       owner = models.ForeignKey(user , on_delete = models.CASCADE , null = False)
     Preprocessed = models.CharField(max_length=20 , null = True)

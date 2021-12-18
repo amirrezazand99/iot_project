@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import devices
 from django.contrib.admin import ModelAdmin
+from csvexport.actions import csvexport
 
 
 @admin.action(description='download')
@@ -1298,4 +1299,4 @@ class Device(ModelAdmin):
         'parameter313',
         'parameter314',
         'parameter315')
-    actions = [download_csv]
+    actions = [csvexport]
