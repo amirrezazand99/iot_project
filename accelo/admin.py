@@ -2,6 +2,14 @@ from django.contrib import admin
 from .models import Accelo
 from django.contrib.admin import ModelAdmin
 
+@admin.action(description='download')
+def download_csv(modeladmin, request, queryset):
+    import csv
+    f = open('some.csv', 'wb')
+    writer = csv.writer(f)
+    writer.writerow(['owner', 'ID_of_device', 'Time_send', 'x', 'y', 'z', 'roll', 'pitch', 'yaw','psi', 'theta','phi' , 'Preprocessed', 'labeled'])
+    for s in queryset:
+        writer.writerow([s.owner, s.ID_of_device, s.Time_send, s.x, s.y, s.z, s.roll, s.pitch, s.yaw,s.psi, s.theta,s.phi , s.Preprocessed, s.labeled])
 
 # Register your models here.
 @admin.register(Accelo)
@@ -10,6 +18,7 @@ class Accelo(ModelAdmin):
     'owner', 'ID_of_device', 'x', 'y', 'z', 'roll', 'pitch', 'yaw','psi', 'theta','phi' , 'Preprocessed', 'labeled')
     list_display = (
     'owner', 'ID_of_device', 'Time_send', 'x', 'y', 'z', 'roll', 'pitch', 'yaw','psi', 'theta','phi' , 'Preprocessed', 'labeled')
+    actions = [download_csv]
 '''
         owner = models.ForeignKey(user , on_delete = models.CASCADE , null = False)
     ID_of_device = models.CharField(max_length=100 , unique=True)
