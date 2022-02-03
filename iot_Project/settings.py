@@ -78,7 +78,6 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://130.185.123.174",
-    "https://130.185.123.174",
 ]
 
 REST_FRAMEWORK = {
